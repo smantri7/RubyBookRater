@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body {
+      background-image: url("/book.jpg");
+      background-repeat: no-repeat;
+      background-position: right top;
+      margin-right: 200px;
+    }
+    </style>
+  </head>
+  <body class='container'>
+    <p>What is your favorite genre?</p>
+    <form action='cast' method='post'>
+      <ul class='unstyled'>
+        <% Choices.each do |id, text| %>
+          <li>
+            <label class='radio'>
+              <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
+              <%= text %>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+      <button type='submit' class='btn btn-primary'>Vote!</button>
+    </form>
+  </body>
+<p>Here is the recommended book of the week!</p>
+<div id="idb_iframe_container">
+</div>
+<script type="text/javascript">
+
+  //REQUIRED INPUTS
+    var isbn = "9781613126837"; // Replace with ISBN / EISBN / ASIN of the book
+    var api_key = "cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7"; //Replace with the developer key (Submit the form to get a key)
+
+  //Optional Settings
+    var smiley = 'true'; // Change to false if do not want to show smiley with each review
+    var width = 700;     // Width of the reviews iframe
+    var height = 400;    // Height of the reviews iframe
+
+
+  // DO NOT EDIT   
+    (function() {
+      var wf = document.createElement('script');
+      var host = "idreambooks.com";  
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://'+host+'/reviews_widget.js?api_key='+ api_key +'&isbn='+ isbn +
+          '&smiley='+ smiley +'&width='+width + '&height=' + height;
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+</script>
+</html>
