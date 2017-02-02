@@ -29,19 +29,31 @@
 <p>Here is the recommended book of the week!</p>
 <div id="idb_iframe_container">
 </div>
-<script type="text/javascript">
+<p>Here are what top critics reccommend!</p>
+<div id="idb_publications_widget" >
+<div id="idb_publications_attribution" apiKey="cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7" style="margin-top:0px;padding-left:5px;" >
+ by <a href="//idreambooks.com"  target='_blank'>
+   <img src="//idreambooks.com/images/embed/idb-logo-name.png" style="width:140px;height:30px;vertical-align:-50%;"
+     alt="Book Reviews from top newspapers!" title="Book Reviews from top publications!">
+  </a> 
+</div>  
+<script type="text/javascript" async="true" src="//idreambooks.com/javascripts/widget/load.js"></script>
+</div>
+<p>Enter the correct book ISBN, then click "Submit" to submit the form:</p>
 
-  //REQUIRED INPUTS
-    var isbn = "9781613126837"; // Replace with ISBN / EISBN / ASIN of the book
+<form id="frm1">
+  Book ISBN: <input type="text" name="fname" id="isbn"><br><br>
+  <input type="button" onclick="myFunction()" value="submit">
+</form>
+<script type = "text/javascript">
+function myFunction() {
+    var isbn = document.getElementById("isbn").value; // Replace with ISBN / EISBN / ASIN of the book
     var api_key = "cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7"; //Replace with the developer key (Submit the form to get a key)
-
   //Optional Settings
     var smiley = 'true'; // Change to false if do not want to show smiley with each review
     var width = 700;     // Width of the reviews iframe
     var height = 400;    // Height of the reviews iframe
-
-
-  // DO NOT EDIT   
+    //Do not edit this part
     (function() {
       var wf = document.createElement('script');
       var host = "idreambooks.com";  
@@ -53,5 +65,6 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(wf, s);
     })();
+  }
 </script>
 </html>
