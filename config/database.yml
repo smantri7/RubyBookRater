@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: development
+  username: smant
+  password: pass
+  host: localhost
