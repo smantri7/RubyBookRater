@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170205191603) do
 
   create_table "models", force: :cascade do |t|
     t.string "name"
+    t.integer "rating"
   end
 
 end

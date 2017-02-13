@@ -3,8 +3,9 @@
 <h4>Book Name:Average Rating Table</h4>
 <% @models.each do |model| %>
 	<tr>
-		<th><%= Model.group(:name).select('name, avg(rating) as average_rating')[0] %></th>
-		<td><%= Model.group(:name).select('name, avg(rating) as average_rating')[1] %> </td>
+		<td> <%= model.name %> </td>
+		<th><%= model.getAverage("")[0] %></th>
+		<td> <%= model.rating %> </td>
 	</tr>
 <% end %>
 <a href="/">Back to Home</a>
