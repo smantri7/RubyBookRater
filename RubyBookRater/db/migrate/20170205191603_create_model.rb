@@ -2,6 +2,7 @@ class CreateModel < ActiveRecord::Migration
   def up
   	create_table :models do |t|
   		t.string :name
+  		t.integer :rating
   	end
   end
 
