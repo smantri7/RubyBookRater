@@ -1,75 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-    body {
-      background-image: url("/book.jpg");
-      background-repeat: no-repeat;
-      background-position: right top;
-      margin-right: 200px;
-    }
-    </style>
-  </head>
-  <body class='container'>
-    <p>あなたの好きなジャンルは何ですか?</p>
-    <form action='cast' method='post'>
-      <ul class='unstyled'>
-        <% Choices.each do |id, text| %>
-          <li>
-            <label class='radio'>
-              <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
-              <%= text %>
-            </label>
-          </li>
-        <% end %>
-      </ul>
-      <button type='submit' class='btn btn-primary'>採決!</button>
-    </form>
-  </body>
-<div id="idb_iframe_container">
-</div>
-<p>今日のおすすめな本でございます</p>
-<div id="idb_publications_widget" >
-<div id="idb_publications_attribution" apiKey="cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7" style="margin-top:0px;padding-left:5px;" >
- by <a href="//idreambooks.com"  target='_blank'>
-   <img src="//idreambooks.com/images/embed/idb-logo-name.png" style="width:140px;height:30px;vertical-align:-50%;"
-     alt="Book Reviews from top newspapers!" title="Book Reviews from top publications!">
-  </a> 
-</div>  
-<script type="text/javascript" async="true" src="//idreambooks.com/javascripts/widget/load.js"></script>
-</div>
-<p>本のISBNを入力して、＜出す＞を教えてください。</p>
-
-<form id="frm1">
-  Book ISBN: <input type="text" name="fname" id="isbn"><br><br>
-  <input type="button" onclick="myFunction()" value="submit">
-</form>
-<script type = "text/javascript">
-function myFunction() {
-    var isbn = document.getElementById("isbn").value; // Replace with ISBN / EISBN / ASIN of the book
-    var api_key = "cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7"; //Replace with the developer key (Submit the form to get a key)
-  //Optional Settings
-    var smiley = 'true'; // Change to false if do not want to show smiley with each review
-    var width = 700;     // Width of the reviews iframe
-    var height = 400;    // Height of the reviews iframe
-    //Do not edit this part
-    (function() {
-      var wf = document.createElement('script');
-      var host = "idreambooks.com";  
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://'+host+'/reviews_widget.js?api_key='+ api_key +'&isbn='+ isbn +
-          '&smiley='+ smiley +'&width='+width + '&height=' + height;
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-    })();
-  }
-</script>
-<form action="/submit" method="POST">
-  <input type="text" name="model[name]" value="Enter Book Name" />
-  <input type="number" name="model[rating]">
-  <input type="text" name="model[comment]" value="Comments?">
-  <input type="submit" value="Submit" />
-</form>
+   <head>
+      <style>
+         body {
+         background-image: url("/book.jpg");
+         background-repeat: no-repeat;
+         background-position: right top;
+         margin-right: 200px;
+         }
+      </style>
+   </head>
+   <body class='container'>
+      <p>あなたの好きなジャンルは何ですか?</p>
+      <form action='cast' method='post'>
+         <ul class='unstyled'>
+            <% Choices.each do |id, text| %>
+            <li>
+               <label class='radio'>
+               <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
+               <%= text %>
+               </label>
+            </li>
+            <% end %>
+         </ul>
+         <button type='submit' class='btn btn-primary'>採決!</button>
+      </form>
+   </body>
+   <div id="idb_iframe_container"></div>
+   <p>今日のおすすめな本でございます</p>
+   <div id="idb_publications_widget" >
+      <div id="idb_publications_attribution" apiKey="cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7" style="margin-top:0px;padding-left:5px;" >
+         by <a href="//idreambooks.com"  target='_blank'>
+         <img src="//idreambooks.com/images/embed/idb-logo-name.png" style="width:140px;height:30px;vertical-align:-50%;"
+            alt="Book Reviews from top newspapers!" title="Book Reviews from top publications!">
+         </a> 
+      </div>
+      <script type="text/javascript" async="true" src="//idreambooks.com/javascripts/widget/load.js"></script>
+   </div>
+   <p>本のISBNを入力して、＜出す＞を教えてください。</p>
+   <form id="frm1">
+      Book ISBN: <input type="text" name="fname" id="isbn"><br><br>
+      <input type="button" onclick="myFunction()" value="submit">
+   </form>
+   <script type = "text/javascript">
+      function myFunction() {
+          var isbn = document.getElementById("isbn").value; // Replace with ISBN / EISBN / ASIN of the book
+          var api_key = "cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7"; //Replace with the developer key (Submit the form to get a key)
+        //Optional Settings
+          var smiley = 'true'; // Change to false if do not want to show smiley with each review
+          var width = 700;     // Width of the reviews iframe
+          var height = 400;    // Height of the reviews iframe
+          //Do not edit this part
+          (function() {
+            var wf = document.createElement('script');
+            var host = "idreambooks.com";  
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://'+host+'/reviews_widget.js?api_key='+ api_key +'&isbn='+ isbn +
+                '&smiley='+ smiley +'&width='+width + '&height=' + height;
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+          })();
+        }
+   </script>
+   <form action="/submit" method="POST">
+      <input type="text" name="model[name]" value="Enter Book Name" />
+      <input type="number" name="model[rating]">
+      <input type="text" name="model[comment]" value="Comments?">
+      <input type="submit" value="Submit" />
+   </form>
 </html>

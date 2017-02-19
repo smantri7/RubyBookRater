@@ -2,10 +2,10 @@
 <table class='table table-hover table-striped'>
 <h4>コメント・感想</h4>
 <% @models.each do |model| %>
-	<tr>
-		<td> <%= model.name %> </td>
-		<th> <%= model.comment %></th>
-		<td> <%= model.rating %> </td>
-	</tr>
+<tr>
+   <td> <%= model.name %> </td>
+   <th> <%= model.comment %></th>
+   <td> <%= model.rating %> </td>
+</tr>
 <% end %>
 <a href="/">Back to Home</a>
