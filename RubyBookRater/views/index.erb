@@ -11,7 +11,7 @@
     </style>
   </head>
   <body class='container'>
-    <p>What is your favorite genre?</p>
+    <p>あなたの好きなジャンルは何ですか?</p>
     <form action='cast' method='post'>
       <ul class='unstyled'>
         <% Choices.each do |id, text| %>
@@ -23,13 +23,12 @@
           </li>
         <% end %>
       </ul>
-      <button type='submit' class='btn btn-primary'>Vote!</button>
+      <button type='submit' class='btn btn-primary'>採決!</button>
     </form>
   </body>
-<p>Here is the recommended book of the week!</p>
 <div id="idb_iframe_container">
 </div>
-<p>Here are what top critics reccommend!</p>
+<p>今日のおすすめな本でございます</p>
 <div id="idb_publications_widget" >
 <div id="idb_publications_attribution" apiKey="cf6f5fe91531a855495d77fc06dd9ada6f1fa1f7" style="margin-top:0px;padding-left:5px;" >
  by <a href="//idreambooks.com"  target='_blank'>
@@ -39,7 +38,7 @@
 </div>  
 <script type="text/javascript" async="true" src="//idreambooks.com/javascripts/widget/load.js"></script>
 </div>
-<p>Enter the correct book ISBN, then click "Submit" to submit the form:</p>
+<p>本のISBNを入力して、＜出す＞を教えてください。</p>
 
 <form id="frm1">
   Book ISBN: <input type="text" name="fname" id="isbn"><br><br>
@@ -70,6 +69,7 @@ function myFunction() {
 <form action="/submit" method="POST">
   <input type="text" name="model[name]" value="Enter Book Name" />
   <input type="number" name="model[rating]">
+  <input type="text" name="model[comment]" value="Comments?">
   <input type="submit" value="Submit" />
 </form>
 </html>
